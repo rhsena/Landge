@@ -1,0 +1,41 @@
+
+
+<div  class="banner" > <p>KnowLandge</p> </div>
+
+
+ <div  class="bluediv">
+  <div align='center'>
+  <%= link_to '[Edit Profile]', edit_company_registration_path(@companies) %> 
+  <p>Welcome <%= @company.company_Name%> ! </p>
+ </div>
+ 
+</div>
+
+
+
+
+  
+   <div>
+       <div class="greendiv" align='center'>
+           <div class="logoframe">
+            <%= image_tag @company.logo  %>
+            <p  class='b_logout'><%= link_to "Logout", destroy_company_session_path , :method => :get %></p>
+      
+            </div>
+        </div>
+       
+       <div class="yellowdiv">
+           
+          <%=@company.description %>
+       
+       </div>
+  
+  </div>
+
+   
+
+<
+
+
+
+

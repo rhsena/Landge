@@ -1,0 +1,59 @@
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|%>
+ <div class="greendiv">  
+  
+  <p> <%= f.file_field :logo %>  </p>        
+        
+        <%= render "links" %>
+        
+        <%= devise_error_messages! %>
+        </div>
+  
+<div class='yellowdiv'> 
+
+  <%= f.label :company_Name %>
+  <%= f.text_field :company_Name, :value => params[:company_Name] %><br/>
+  
+  
+  <%= f.label :description %><br/>
+  <%= f.text_area :description, :size => "60x6" %><br/>
+
+  <%= f.label :city %> 
+  <%= f.text_field :city, :value => params[:city] %>
+  
+  <%= f.label :state %> 
+  <%= f.text_field :state, :size => "2", :maxlength => "2" %>
+  
+  <%= f.label :country %> 
+  <%= f.text_field :country, :value => params[:country], :size =>'12'%> <br/>
+
+  
+ <div class='owner'>
+   Account Owner
+  <p>
+  <%= f.label :name %>
+  <%= f.text_field :account_Owner_Name %>
+  
+  <%= f.label :role %>
+  <%= f.text_field :account_Owner_Role, :size => 14 %><br />
+  
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  
+  <%= f.label :phone %> 
+  <%= f.telephone_field :account_Owner_Phone ,:size => "15", :maxlength => "15" %></p>
+ </div>
+ 
+  
+  <%= f.label :password %> 
+  <%= f.password_field :password , :size => 16 %> <br/>
+
+  <%= f.label "re-type password" %>
+  <%= f.password_field :password_confirmation, :size => 16 %><br/>
+  
+ 
+  <%= f.submit "Sign up" %>
+  
+ <%= render "form" %>
+
+  </div>
+<% end %>

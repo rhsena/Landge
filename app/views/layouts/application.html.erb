@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="favicon.ico" href="/favicon.ico" />
+  <title>Knowlandge</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  
+  <%= csrf_meta_tags %> 
+
+</head>
+
+<body class="fundo">
+        <p class="notice exception"><%= notice %></p>
+        <p class="alert exception2"><%= alert %></p>
+        <%= yield %>
+
+
+
+</body>
+</html>

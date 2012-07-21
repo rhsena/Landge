@@ -1,0 +1,127 @@
+
+<div  class="banner" > <p>KnowLandge</p>    </div>
+
+
+ <div  class="bluediv">
+   
+  <div align='center'>
+  <%= link_to '[Edit Profile]', edit_company_registration_path(@companies) %> 
+  <p>Welcome <%= @company.company_Name%> ! </p>
+ </div>
+ 
+</div>
+
+
+
+<div>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), 
+                       :html => { :method => :put }) do |f| %>
+ <div class="greendiv">  
+    <div align='center'><font size='5' face='verdana'>Edit Profile</font><br>
+        <%=link_to "HOME", home_index_path , :id => "eldiablo" %></div>
+  
+ 
+ <div class="logoframe" align='center'>
+            <%=image_tag  @company.logo_url.to_s %>
+           
+            
+          </div>  
+            
+          <div id="">
+             <h3>Cancel my account</h3>
+<%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>
+           </div>
+            
+        </div>
+             
+          
+            
+ <br />
+   
+  </div>
+<div class='yellowdiv'>
+  
+  <p style="margin-left: 30px">
+  Company Name <br>
+  <%= f.text_field :company_Name , :id => 'comp_name'%> LOGO
+  <%= f.file_field :logo , :id => 'file-original', :size => 30 %>    <br>
+  
+  <%= f.label :description  %><br>
+  <%= f.text_area :description, :id =>'description'  %><br>
+  
+  <%= f.label :city %>
+  <%= f.text_field :city , :id => 'city'%>
+  
+  <%= f.label :state %> 
+  <%= f.text_field :state, :id => 'state', :maxlength => 2 %>
+  
+  
+  <%= f.label :country %>
+  <%= f.text_field :country, :id => 'country'%><br>
+  </p>
+ 
+
+<div class='owner'>
+    <font style="margin-left: 26px">Account Owner</font>
+  <p>
+   <%= f.label :name , :style => "margin-left: 3px" %>
+   <%= f.text_field :account_Owner_Name, :id => 'ownername' , :style => "margin-left: 5px" %>
+  
+  
+  <%= f.label :role, :style => "margin-left: 5px" %>
+   <%= f.text_field :account_Owner_Role , :id => 'ownerrole'%> <br>
+  
+  
+  
+
+  <%= f.label :email, :style => "margin-left: 3px" %>
+  <%= f.email_field :email , :id => 'owneremail' %>
+  
+  
+  <%= f.label :phone ,:style => "margin-left: 5px"%>
+  <%= f.telephone_field :account_Owner_Phone , :id => 'ownerfone' %>
+ 
+  </p>
+  
+  </div>
+  
+  <%= f.label :password %> 
+  <%= f.password_field :password, :autocomplete => "off" , :class => "password" %> 
+  <i>(leave blank if you don't want to change it)</i><br/>
+
+  Re-Type <br> password
+  <%= f.password_field :password_confirmation, :class => 'password' %><br/>
+
+  Current <br> password
+  <%= f.password_field :current_password, :class => 'password'%> 
+  <i>(we need your current password to confirm your changes)</i><br/>
+  
+  
+    <%= f.submit "Update"%>
+    
+     <div id='error-div'>
+      <%= devise_error_messages! %>
+     </div>
+  
+     
+     </div>
+
+ 
+  
+<% end %>
+
+
+<%= javascript_include_tag "application" %>
+ 
+<script>
+ $(document).ready(function(){
+   $('#ownerfone').mask("+99 (99) 9999-9999");
+   $('#owneremail').watermark('Required information');	
+	});
+   
+ });
+ 
+</script>
+
+
+

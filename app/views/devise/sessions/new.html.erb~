@@ -1,0 +1,57 @@
+
+<div  class="banner" > <p>KnowLandge</p> </div>
+
+
+ <div  class="bluediv">
+ 
+ 
+</div>
+
+ <div class="greendiv"> 
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+        
+        <div class="input2 signin">
+        <div class='lista2 '>
+          <h3> Sign In</h3>
+         
+       
+          <b><%= f.label :email %></b>
+               <%= f.email_field :email, :class => 'sign' %>
+         
+         <b> <%= f.label :password %></b>
+               <%= f.password_field :password, :class => 'sign' %> 
+       
+               <% if devise_mapping.rememberable? %>
+          <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+               <% end %>
+
+         <div class='b_sign_in'><%= f.submit "SIGN IN" %> </div>       
+          <%= render "links" %>
+          <% end %>
+       
+          </div>
+        </div>
+          </div>   
+ 
+ 
+<div class="yellowdiv imag">
+
+<%= form_tag("sign_up", :method => "get") do %>
+ <div class="signup input">
+ <div class='lista'>
+ <h3 align='right'>Sign Up</h3>
+  <b><%= label_tag(:company_Name, "Company:") %></b></br>
+     <%= text_field_tag(:company_Name, nil , :class => 'sign')%></br>
+  
+  <b><%= label_tag(:city,"City:") %></b></br>
+     <%= text_field_tag(:city, nil, :class => 'sign') %></br>
+  
+  <b><%= label_tag(:country,"Country:") %></b></br>
+  <%= text_field_tag(:country, nil, :id => 'pais') %>
+  <div class='b_sign_up'><%= submit_tag("SIGN UP") %></div>
+<% end %>
+</div>
+</div>
+</div>
+<body>
+</html>
